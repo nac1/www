@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="cordova.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/action.js"></script>
+</head>
+<body>
+
+	<!-- Start of first page -->
+<div data-role="page" id="foo">
+
+	<div data-role="header">
+		<h1>Primer</h1>
+		<a href="#bar" class="ui-btn ui-corner-all ui-btn-inline ui-icon-arrow-r ui-btn-icon-right ui-btn-right" data-transition="pop">Ir a bar</a>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		 <input type="text" data-clear-btn="true" name="text-3" id="name" placeholder="Name" value="">
+		 <input type="email" data-clear-btn="true" name="email-2" id="correo" placeholder="email" value="" >
+		<p>Date</p>
+		<input type="date" data-clear-btn="true" name="date-2" id="fn" value="">
+		<a href="#"  id="regFoto" class="ui-btn ui-icon-camera ui-btn-icon-left ui-shadow-icon">Picture</a>
+	
+		<div id="regImg" style="width: 100%"></div>
+
+
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed">
+       <div data-role="navbar">
+            <ul>
+<li><a href="#bar" id="sig1" data-icon="forward">Siguiente</a></li>
+<li><a href="#device" id="dis1" data-icon="phone" 
+class="ui-btn-active"> Dispositivo</a></li>
+<li><a href="#" id="red1" data-icon="gear" 
+data-rel="back">Red</a></li>
+            </ul>
+        </div><!-- /navbar -->
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="bar">
+	<div data-role="header">
+		<h1>Calcular IMC</h1>
+	<a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-icon-arrow-l ui-btn-icon-left ui-btn-right" 
+	data-rel="back" data-transition="flow">Regreso</a>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<br><br>
+		<label for="text-basic">Peso</label>
+		<input type="number" data-clear-btn="true" name="number-2" id="peso" value="">
+		<label for="text-basic">Altura</label>
+		<input type="number" data-clear-btn="true" name="number-3" id="altura" value="">
+
+<button class="ui-btn ui-icon-grid ui-btn-icon-left 
+ui-shadow-icon ui-btn-b" id="calc">Calcular</button>
+
+<button class="ui-btn ui-icon-mail ui-btn-icon-left 
+ui-shadow-icon ui-btn-b" id="enviar">Enviar</button>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed"> 
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start 3 page -->
+<div data-role="page" id="device">
+	<div data-role="header">
+		<h1>Datos de Dispositivo</h1>
+	<a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-icon-arrow-l ui-btn-icon-left ui-btn-right" 
+	data-rel="back" data-transition="flow">Regreso</a>
+	</div><!-- /header -->
+	<div role="main" class="ui-content">
+		
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed"> 
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
