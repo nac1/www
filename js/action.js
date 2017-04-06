@@ -19,11 +19,13 @@ var fn={
 	document.addEventListener("deviceready",fn.init, false);
 	},
 	init:function(){
+        
+
 	$('#sig1').tap(fn.almacenar);
     $('#calc').tap(fn.calcular);
-    $('#enviar').tap(fn.enviar);
+    $('#envia').tap(fn.envia);
     $('#dis1').tap(fn.dispositivo);
-    $('#red1').tap(fn.estaConectado);
+    $('#red1').tap(fn.estaconectado);
     $('#regFoto').tap(fn.tomarFoto);
 	},
     almacenar:function(){
@@ -47,29 +49,34 @@ var fn={
         null,"IMC","ok");
 
     },
-    enviar:function(){
-        var peso=$('#peso').val();
+    envia:function(){
+      navigator.vibrate(1000);
+     navigator.notification.beep(1);
+      var peso=$('#peso').val();
         var altura=$('#altura').val();
         var imc=localStorage.getItem("imc");
         var nombre=localStorage.getItem("nombre");
         alert(nombre+" "+imc);
 
         if(peso!='' && altura!='' && nombre!='' && imc!='')
-        {
-            $.ajax({
-            type:"POST",
-            url:"http://uprrimc.azurewebsites.net/test2.php",
-            data:"peso="+peso+"&altura="+altura+"&nombre="nombre+"&imc"+imc
-                  }).done(function(msg){
-                    if(msg==1)
-                    {
-                        alert("datos enviados y recibidos");
-                    }
-                    else {alert("Error en el registro"); }
-
-             });
-
-        }else{ alert("Todos los datos son requeridos");}
+        {alert("no vacios");
+         $.ajax({
+        type: "POST",
+        url: "http://uprrimc.azurewebsites.net/test2.php", // data: { nom: nom, mail: mail,tel:tel }
+        data: "peso="+peso+"&altura="+altura+"&nombre="+nombre+"&imc="+imc
+               }).done(function(msg){
+                        if(msg==1){
+                               
+                        alert("Datos eviados y recibidos");
+                        
+                        }else{
+                         lert("Hubo un error en el registro");
+                        }
+                    });
+            
+           }else{
+         alert('Todos los campos son requeridos');
+            }
 
     },
     dispositivo:function(){
@@ -78,7 +85,7 @@ var fn={
         $('#data').append('<p>'+device.version+'</p>')
 
     },
-    estaConectado:function{
+    estaconectado:function(){
         navigator.notification.beep(1);
         var conn=navigator.connection.type;
 
@@ -87,7 +94,7 @@ var fn={
         else
             alert("desconectado");
     },
-    tomarFoto:function{
+    tomarFoto:function(){
         // start image capture
     navigator.device.capture.captureImage(function(img){
         for(i=0;i<img.length;i++){
